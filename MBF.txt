@@ -1,0 +1,59 @@
+1. it is based on the behavior and the distance of movement and dispersion of the children around the mother’s mouth.
+2. Three general important factors in solving complex optimization problems using algorithms are speed, accuracy, and a number of function evaluation(NFE or number of generations)
+3. members of the cichlids family devote considerable energy in rearing their youngsters.
+4. Once released, the cichlid uses distinct behavioral cues when danger is present to let her young know it is time to swim back and seek protection. When they grow and the mother’s shelter has not enough room for all of them, at the time of danger, some of the weak cichlids are left behind and have to face up with the danger and nature alone.
+5. MBF algorithm has 5 controlling parameters.
+6. These 5 controlling parameters are the number of population of cichlids (nFish), mother’s source point (SP), the amount of dispersion (Dis), the probability of dispersion (Pdis), and mother’s source point damping (SPdamp).
+7.
+nFish= initial population size of routes
+8. The main base of Mouth Brooding Fish algorithm is the movements of cichlids around their mother and the effects of nature or danger on these movements.
+9. MBF algorithm procedure consists of 4 main parts in order to find the best possible results for the problems.
+10. The proposed algorithm uses the movements of cichlids as the main factor.
+11. Effects on cichlids:
+a. The main movements of each cichlid
+b. The additional movements of left out cichlids
+c. Crossover with roulette wheel selection
+d. Shark attack or effects of danger on cichlids movement
+
+12. The main movements of each cichlid
+Basic movements of each cichlid=Sum of all these 4 effects
+a.(due to SP i.e. between 0 and 1)
+i) 1st.Effect = SP × Cichlids.Movements, Cichlids.Movements are the last movements of cichlids.
+ii) in the end of each iteration, SP = SP × SPdamp (due to damping, where SPdamp is between 0.85 and 0.95)
+b.
+i) The second factor of movements is towards the best position of a particular individual cichlid which is found in the past iterations.
+ii) It is controlled by Dis parameter which is between 1 and 2.
+iii) 2nd.Effect = Dis × (Cichlids.Best − Cichlids.Position)
+c.
+i) tendency of all children to move toward the best possible position of whole cichlids
+ii) 3rd.Effect = Dis × (Global.Best − Cichlids.Position)
+d.(Algorithm1)
+i) Last factor is nature trends and force
+ii) NewN.F.P = 10 × SP × NatureForce.Position(SelectedCells)
+4th.Effect = Dis × (NewN.F.P − NatureForce.Position)
+
+13. each child could not move more than Additional surrounding dispersion positive or negative
+(ASDP or ASDN)
+14. ASDP = 0.1 × (VarMax − VarMin), ASDN = −ASDP
+
+15. The additional movements of left out cichlids 
+a. Left-out cichlids have to face challenges as mother's mouth could not accomodate them
+b. nm = 0.04 × nFish × SP^(−0.431), nm=number of left out cichlids.
+c. Since mother is not caring, they have to move further for survival, so the Additional Surrounding Dispersion positive is multiplied by 4.
+UASDP = 4 × ASDP, UASDN = −UASDP, UASDP and UASDN are the ultra-additional surrounding dispersion positive and negative
+d. LeftCichlids.Position = UASDP ± Cichlids.P(SelectedCells)
+e. Algorithm2
+
+16. Crossover with roulette wheel selection
+The newly created child will have 0 movement initially.
+
+17. Shark attack or effects of danger on cichlids movement
+a. In nature 4 percent of each colony or population of cichlids are attacked by sharks or other
+natural threats.
+b. MBF algorithm for the 4 percent of the population uses additional movements named shark attack effect.
+c. n_shark = 0.04 × nFish
+d. Cichlids.NewPosition = SharkAttack × Cichlids.Position, 
+e. Algorithm3
+
+
+Distance between two chromosomes A and B is the swaps required in going from B to A.
